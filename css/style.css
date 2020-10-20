@@ -1,0 +1,361 @@
+/*
+1. Позиционирование
+2. Блочная модель
+3. Типографика
+4. Оформление
+5. Анимация
+6. Разное
+*/
+
+/* Fonts - start  */
+@font-face {
+    font-family: 'San Francisco Pro Display Regular';
+    src: url('../fonts/SFProDisplay-Regular.eot');
+    src: url('../fonts/SFProDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/SFProDisplay-Regular.woff') format('woff'),
+    url('../fonts/SFProDisplay-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'San Francisco Pro Display Medium';
+    src: url('../fonts/SFProDisplay-Medium.eot');
+    src: url('../fonts/SFProDisplay-Medium.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/SFProDisplay-Medium.woff') format('woff'),
+    url('../fonts/SFProDisplay-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'San Francisco Pro Display Bold';
+    src: url('../fonts/SFProDisplay-Bold.eot');
+    src: url('../fonts/SFProDisplay-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/SFProDisplay-Bold.woff') format('woff'),
+    url('../fonts/SFProDisplay-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Fonts - end */
+
+
+:root {
+    --light-gold: #F3F0EA;
+    --bg: #F9F9F9;
+    --turquoise: #71A89E;
+    --dark-turquoise: #22322F;
+    --white: #FFFFFF;
+    --black: #000000;
+    --shadow: #333333;
+}
+
+/* Global style - start*/
+
+*, *:before, *:after {
+    box-sizing: border-box
+}
+
+html,
+body {
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'San Francisco Pro Display Thin', Helvetica, sans-serif;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 400;
+    color: var(--dark-turquoise);
+
+    background-color: var(--bg);
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+@media (min-width: 1280px) {
+    .container {
+        width: 1240px;
+    }
+}
+
+.button {
+    display: inline-block;
+    width: 203px;
+    height: 44px;
+    padding: 10px 0;
+
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    vertical-align: middle;
+    color: var(--white);
+
+    background: var(--turquoise);
+    border: 2px solid var(--black);
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--shadow);
+    outline: none;
+}
+
+/*.button:hover,
+.button:focus {
+    background: #8fbab2;
+}*/
+
+.button:active {
+    box-shadow: inset 3px 3px 0 var(--shadow);
+}
+
+.button.disabled,
+.button:disabled {
+    cursor: default;
+    opacity: 0.5;
+    background: #8fbab2;
+}
+
+@media (min-width: 600px) {
+    .button {
+        width: 222px;
+        height: 67px;
+        padding: 20px 0;
+
+        font-size: 18px;
+    }
+
+}
+
+/* Global style - end */
+
+/* header - start */
+
+.header {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 138px 1fr;
+    margin-top: 60px;
+}
+
+
+.logo {
+    display: grid;
+    align-items: center;
+    justify-self: start;
+    margin-top: 7px;
+}
+
+.logo__img {
+    width: 79px;
+}
+
+@media (min-width: 700px) {
+    .logo__img {
+        width: auto;
+    }
+}
+
+.header__button {
+    position: relative;
+    display: grid;
+    align-items: center;
+    justify-self: end;
+    padding: 9px 0 9px 24px;
+
+    width: 99px;
+    height: 37px;
+
+    color: var(--dark-turquoise);
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 19px;
+
+    background-color: var(--bg);
+}
+
+@media (min-width: 700px) {
+    .header__button {
+        display: none;
+    }
+}
+
+.header__button::before {
+    content: "";
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+    left: 20px;
+
+    background: url("../img/menu-icon.svg");
+}
+
+.menu {
+    display: grid;
+    justify-content: end;
+}
+
+.menu__list {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-column-gap: 36px;
+    align-items: center;
+    justify-self: center;
+
+    margin: 0;
+    padding: 0;
+
+    max-width: 413px;
+
+    list-style: none;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    text-align: center;
+    vertical-align: middle;
+    letter-spacing: -0.02em;
+}
+
+@media (max-width: 699px) {
+    .menu__list {
+        display: none;
+    }
+}
+
+.menu__link {
+    color: #303031;
+    padding: 20px 0;
+}
+
+.menu__link--login {
+    color: var(--turquoise);
+    font-weight: bold;
+}
+
+/* header - end */
+
+/* main - start */
+
+.main {
+    padding-top: 97px;
+    padding-bottom: 160px;
+
+    background-image: url("../img/Illustration.svg");
+    background-repeat: no-repeat;
+    background-size: 94% auto;
+    background-position: 0 -57px;
+}
+
+@media (min-width: 425px) and (max-width: 800px) {
+    .main {
+        background-size: auto 500px;
+        background-position: 50% -57px;
+    }
+}
+
+@media (min-width: 800px) {
+    .main {
+        background-size: auto 700px;
+        background-position: 50% -57px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .main {
+        background-size: 50% auto;
+        background-position: 100% -90px;
+    }
+}
+
+.main__title {
+    margin-top: 300px;
+    margin-bottom: 0;
+
+    max-width: 314px;
+
+    font-weight: normal;
+    font-size: 27px;
+    line-height: 43px;
+    letter-spacing: -0.03em;
+}
+
+@media (min-width: 600px ) {
+    .main__title {
+        font-size: 48px;
+        line-height: 72px;
+        max-width: 551px;
+    }
+}
+
+@media (min-width: 800px ) {
+    .main__title {
+        margin-top: 517px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .main__title {
+        margin-top: 150px;
+    }
+}
+
+.main__text {
+    margin-bottom: 22px;
+
+    max-width: 314px;
+
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: -0.06em;
+}
+
+@media (min-width: 600px ) {
+    .main__text {
+        font-size: 24px;
+        line-height: 32px;
+        max-width: 551px;
+    }
+}
+
+/* main - end */
+
+/* footer - start */
+
+/* footer - end */
